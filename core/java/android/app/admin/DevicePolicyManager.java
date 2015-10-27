@@ -17430,6 +17430,7 @@ public class DevicePolicyManager {
         return null;
     }
 
+<<<<<<< HEAD
     // TODO(b/308755220): Remove once the build is finalised.
     /**
      * Returns true if the flag for the onboarding bugreport V2 is enabled.
@@ -17510,5 +17511,25 @@ public class DevicePolicyManager {
             }
         }
         return -1;
+    }
+    
+    /**
+     * Lineage: check if secure keyguard is required
+     * @hide
+     */
+    public boolean requireSecureKeyguard() {
+        return requireSecureKeyguard(UserHandle.myUserId());
+    }
+
+    /** @hide */
+    public boolean requireSecureKeyguard(int userHandle) {
+        if (mService != null) {
+            try {
+                return mService.requireSecureKeyguard(userHandle);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Failed to get secure keyguard requirement");
+            }
+        }
+        return true;
     }
 }
