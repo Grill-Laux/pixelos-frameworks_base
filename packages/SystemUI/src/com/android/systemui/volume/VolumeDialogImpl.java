@@ -85,6 +85,7 @@ import android.provider.Settings;
 import android.provider.Settings.Global;
 import android.text.InputFilter;
 import android.text.TextUtils;
+import android.util.FeatureFlagUtils;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseBooleanArray;
@@ -272,6 +273,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     private ImageButton mSettingsIcon;
     private View mExpandRowsView;
     private ExpandableIndicator mExpandRows;
+    private FrameLayout mZenIcon;
     private final List<VolumeRow> mRows = new ArrayList<>();
     private ConfigurableTexts mConfigurableTexts;
     private final SparseBooleanArray mDynamic = new SparseBooleanArray();
